@@ -1,8 +1,30 @@
-body {background-color: rgb(103, 180, 156);
-        }
-        h1 {color: navy;
-        }
-        h2 {color: rgb(6, 55, 14);
-        }
-        p {color: rgb(17, 9, 68);
-        }
+body {
+    background-color: rgb(103, 180, 156);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+h1 {
+    color: navy;
+    font-size: 32px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid navy;
+}
+
+h2 {
+    color: rgb(6, 55, 14);
+    font-size: 24px;
+    margin: 10px;
+    padding: 5px;
+}
+
+p {
+    color: rgb(17, 9, 68);
+    font-size: 16px;
+    margin: 10px;
+    padding: 5px;
+}
