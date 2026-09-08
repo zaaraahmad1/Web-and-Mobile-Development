@@ -1,42 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
 <body>
-    <h1>JavaScript Calculator Functions</h1>
-    <p>Open the browser console to see the outputs.</p>
+
+    <h1>JavaScript Calculator</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <br><br>
+
+    <button id="addBtn">Add</button>
+    <button id="subtractBtn">Subtract</button>
+    <button id="multiplyBtn">Multiply</button>
+    <button id="divideBtn">Divide</button>
+
+    <h2 id="result">Result will appear here</h2>
 
     <script>
-        // Addition
+
         const add = function(a, b) {
-            return a + b;
-        };
+            try {
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Please enter valid numbers");
+                }
 
-        // Subtraction
-        const subtract = (a, b) => a - b;
+                return a + b;
 
-        // Multiplication
-        const multiply = function(a, b) {
-            return a * b;
-        };
-
-        // Division
-        const divide = (a, b) => {
-            if (b === 0) {
-                return "Cannot divide by zero";
+            } catch (error) {
+                return error.message;
             }
-            return a / b;
         };
 
-        // Addition using rest params
+        const subtract = (a, b) => {
+            try {
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Please enter valid numbers");
+                }
+
+                return a - b;
+
+            } catch (error) {
+                return error.message;
+            }
+        };
+
+        const multiply = function(a, b) {
+            try {
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Please enter valid numbers");
+                }
+
+                return a * b;
+
+            } catch (error) {
+                return error.message;
+            }
+        };
+
+        const divide = (a, b) => {
+            try {
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Please enter valid numbers");
+                }
+
+                if (b === 0) {
+                    throw new Error("Cannot divide by zero");
+                }
+
+                return a / b;
+
+            } catch (error) {
+                return error.message;
+            }
+        };
+
         function addAll(...numbers) {
-            return numbers.reduce((total, number) => total + number, 0);
+            try {
+                return numbers.reduce((total, number) => total + number, 0);
+
+            } catch (error) {
+                return error.message;
+            }
         }
 
-        console.log("Addition:", add(10, 5));
-        console.log("Subtraction:", subtract(10, 5));
-        console.log("Multiplication:", multiply(10, 5));
-        console.log("Division:", divide(10, 5));
+        function calculate(operation) {
+            try {
+                const num1 = Number(document.getElementById("num1").value);
+                const num2 = Number(document.getElementById("num2").value);
 
-        console.log("Addition of multiple numbers:", addAll(1, 2, 3, 4, 5));
+                const answer = operation(num1, num2);
+
+                document.getElementById("result").innerHTML =
+                    "Result: " + answer;
+
+                console.log("Result:", answer);
+
+            } catch (error) {
+                document.getElementById("result").innerHTML =
+                    "Error: " + error.message;
+            }
+        }
+
+        document.getElementById("addBtn").addEventListener("click", function() {
+            calculate(add);
+        });
+
+        document.getElementById("subtractBtn").addEventListener("click", function() {
+            calculate(subtract);
+        });
+
+        document.getElementById("multiplyBtn").addEventListener("click", function() {
+            calculate(multiply);
+        });
+
+        document.getElementById("divideBtn").addEventListener("click", function() {
+            calculate(divide);
+        });
+
     </script>
 
 </body>
