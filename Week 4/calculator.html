@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>JavaScript Calculator Functions</h1>
+    <p>Open the browser console to see the outputs.</p>
+
+    <script>
+        // 1. Addition - Function Expression
+        const add = function(a, b) {
+            return a + b;
+        };
+
+        // 2. Subtraction - Arrow Function
+        const subtract = (a, b) => a - b;
+
+        // 3. Multiplication - Function Expression
+        const multiply = function(a, b) {
+            return a * b;
+        };
+
+        // 4. Division - Arrow Function
+        const divide = (a, b) => {
+            if (b === 0) {
+                return "Cannot divide by zero";
+            }
+            return a / b;
+        };
+
+        // 5. Addition using Rest Parameters
+        function addAll(...numbers) {
+            return numbers.reduce((total, number) => total + number, 0);
+        }
+
+
+        // Calling all calculator functions
+
+        console.log("Addition:", add(10, 5));
+        console.log("Subtraction:", subtract(10, 5));
+        console.log("Multiplication:", multiply(10, 5));
+        console.log("Division:", divide(10, 5));
+
+        // Calling rest parameter function
+        console.log("Addition of multiple numbers:", addAll(1, 2, 3, 4, 5));
+    </script>
+
+</body>
+</html>
